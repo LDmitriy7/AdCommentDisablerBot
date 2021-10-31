@@ -14,3 +14,4 @@ async def ignore(*_):
 async def ask_to_promote_me(update: types.Update, *_):
     if update.message:
         await update.message.reply('Не могу удалить пост в группе, требуются права администратора')
+        return True
