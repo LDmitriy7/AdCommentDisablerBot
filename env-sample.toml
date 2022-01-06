@@ -3,7 +3,7 @@ token = ''
 #skip_updates = true
 
 [Database]
-name = 'comment_cleaner_bot'
+name = 'AdCommentDisablerBot'
 #username = 'root'
 #password = ''
 #host = 'localhost'
