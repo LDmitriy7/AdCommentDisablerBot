@@ -14,6 +14,8 @@ async def create_ad_post_document(msg: types.Message):
 
 @dp.message_handler(content_types=types.ContentTypes.ANY, chat_type=[types.ChatType.GROUP, types.ChatType.SUPERGROUP])
 async def delete_ad_post_from_group(msg: types.Message):
+    print(msg)
+
     if not await filters.is_forwarded_from_linked_channel(msg):
         return
 

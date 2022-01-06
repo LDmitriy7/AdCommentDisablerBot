@@ -1,16 +1,14 @@
-# Sample for 'env.toml'
+[Bot]
+token = ''
+#skip_updates = true
 
 [Database]
-name = 'bot'
+name = 'comment_cleaner_bot'
 #username = 'root'
 #password = ''
 #host = 'localhost'
 #port = 27017
 #auth_source = 'admin'
-
-[Bot]
-token = ''
-#skip_updates = true
 
 [Users]
 admins_ids = [724477101]
