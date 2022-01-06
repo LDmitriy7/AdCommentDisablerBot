@@ -15,8 +15,8 @@ USER_COMMANDS = [
 ]
 
 ADMIN_COMMANDS = USER_COMMANDS + [
-    types.BotCommand(CANCEL, 'Отменить'),
-    types.BotCommand(BROADCAST, 'Рассылка'),
+    # types.BotCommand(CANCEL, 'Отменить'),
+    # types.BotCommand(BROADCAST, 'Рассылка'),
 ]
 
 
