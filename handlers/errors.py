@@ -13,5 +13,5 @@ async def ignore(*_):
 @dp.errors_handler(exception=exceptions.MessageCantBeDeleted)
 async def ask_to_promote_me(update: types.Update, *_):
     if update.message:
-        await update.message.reply('Не могу удалить пост в группе, требуются права администратора')
+        await update.message.reply('Не могу отключить комментарии, требуются права администратора в группе')
         return True

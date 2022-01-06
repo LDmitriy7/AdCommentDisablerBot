@@ -3,4 +3,5 @@ def setup():
     from . import fallbacks
     from . import for_admins
     from . import errors
-    from . import clean_comments
+
+    from . import disable_comments
