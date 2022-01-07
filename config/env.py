@@ -6,8 +6,10 @@ _env = toml.load('env.toml')
 class Bot:
     _data = _env['Bot']
 
-    token = _data['token']
+    token: str = _data['token']
+    id = int(token.split(':')[0])
     skip_updates = _data.get('skip_updates', False)
+
 
 
 class Database:
