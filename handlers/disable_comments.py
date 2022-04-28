@@ -7,14 +7,14 @@ from models import documents
 
 @dp.channel_post_handler(content_types=types.ContentTypes.ANY)
 async def remember_ad_post(msg: types.Message):
-    if not filters.is_post_ad(msg):
-        if msg.reply_to_message and filters.is_post_ad(msg.reply_to_message):
+    if not filters.is_ad_post(msg):
+        if msg.reply_to_message and filters.is_ad_post(msg.reply_to_message):
             documents.AdPost(chat_id=msg.chat.id, message_id=msg.message_id).save()
 
 
 @dp.message_handler(filters.is_forward_from_linked_channel, content_types=types.ContentTypes.ANY)
 async def disable_comments(msg: types.Message):
-    if filters.is_post_ad(msg):
+    if filters.is_ad_post(msg):
         await msg.delete()
         return
 

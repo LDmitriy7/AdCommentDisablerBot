@@ -1,12 +1,16 @@
+from typing import Union
+
 from aiogram import types
 from aiogram.types import MessageEntityType
+
+import api
 
 
 def is_forward_from_linked_channel(msg: types.Message) -> bool:
     return bool(msg.is_automatic_forward)
 
 
-def is_post_ad(msg: types.Message) -> bool:
+def is_ad_post(msg: types.Message) -> bool:
     for e in msg.entities + msg.caption_entities:
         if e.type in [MessageEntityType.MENTION, MessageEntityType.URL, MessageEntityType.TEXT_LINK]:
             return True
@@ -16,5 +20,22 @@ def is_post_ad(msg: types.Message) -> bool:
             for button in row:
                 if button.url:
                     return True
+
+    return False
+
+
+def contain_single_link(msg: types.Message) -> Union[bool, dict]:
+    if len(msg.entities) != 1:
+        return False
+
+    entity = msg.entities[0]
+
+    if not (entity.offset == 0 and entity.length == len(msg.text)):
+        return False
+
+    if entity.type == MessageEntityType.MENTION:
+        return {'link': api.username_to_url(msg.text)}
+    if entity.type == MessageEntityType.URL:
+        return {'link': msg.text}
 
     return False
