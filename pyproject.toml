@@ -1,0 +1,23 @@
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "levch", email = "levchenko.d.a1998@gmail.com"},
+]
+dependencies = [
+    "aiogram>=2.22.1",
+    "aiogram-utils>=0.1.4",
+    "motor>=3.0.0",
+    "toml>=0.10.2",
+    "envparse>=0.2.0",
+]
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"
+
+[tool]
+[tool.pdm]

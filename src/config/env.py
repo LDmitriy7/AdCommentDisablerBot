@@ -1,4 +1,9 @@
+import os
+
 import toml
+from envparse import env
+
+env.read_envfile()
 
 _env = toml.load('env.toml')
 
@@ -11,14 +16,13 @@ class Bot:
     skip_updates = _data.get('skip_updates', False)
 
 
-
 class Database:
     _data = _env['Database']
 
     name = _data['name']
     username = _data.get('username')
     password = _data.get('password')
-    host = _data.get('host', 'localhost')
+    host = os.environ['MONGO_HOST']
     port = _data.get('port', 27017)
     auth_source = _data.get('auth_source', 'admin')
 

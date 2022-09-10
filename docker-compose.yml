@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    restart: always
+    environment:
+      MONGO_HOST: mongo
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+      - mongo:/data/db
+volumes:
+  mongo: {}
