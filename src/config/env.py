@@ -23,7 +23,7 @@ class Database:
     username = _data.get('username')
     password = _data.get('password')
     host = os.environ['MONGO_HOST']
-    port = os.environ['MONGO_PORT']
+    port = int(os.environ['MONGO_PORT'])
     auth_source = _data.get('auth_source', 'admin')
 
 
