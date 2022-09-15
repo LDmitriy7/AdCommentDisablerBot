@@ -3,11 +3,6 @@ services:
     build: .
     restart: always
     environment:
-      MONGO_HOST: mongo
-  mongo:
-    image: mongo
-    restart: always
-    volumes:
-      - mongo:/data/db
-volumes:
-  mongo: {}
+      TZ: Europe/Moscow
+    ports:
+      - ${MONGO_PORT}:${MONGO_PORT}

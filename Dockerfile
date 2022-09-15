@@ -2,8 +2,7 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-COPY pyproject.toml pyproject.toml
-COPY pdm.lock pdm.lock
+COPY pyproject.toml pdm.lock ./
 
 RUN pip install pdm && pdm install
 
