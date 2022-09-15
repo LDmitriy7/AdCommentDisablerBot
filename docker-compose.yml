@@ -4,5 +4,3 @@ services:
     restart: always
     environment:
       TZ: Europe/Moscow
-    ports:
-      - ${MONGO_PORT}:${MONGO_PORT}
