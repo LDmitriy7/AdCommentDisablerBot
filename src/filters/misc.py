@@ -11,6 +11,9 @@ def is_forward_from_linked_channel(msg: types.Message) -> bool:
 
 
 def is_ad_post(msg: types.Message) -> bool:
+    if msg.poll:
+        return True
+
     for e in msg.entities + msg.caption_entities:
         if e.type in [MessageEntityType.MENTION, MessageEntityType.URL, MessageEntityType.TEXT_LINK]:
             return True
